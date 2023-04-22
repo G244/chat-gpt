@@ -159,8 +159,8 @@ export class Message {
 
     /*passive message*/
     reply(res, options, toUser) {
-        console.log('reply')
-        res.writeHead(200, { 'Content-Type': 'application/xml' });
+        console.log('reply');
+       
         var resMsg = xmlmsg1(toUser, process.env.CORPID, this.timestamp(), options.content);
 
         const msgEncrypt = this.encryptMsg(resMsg);

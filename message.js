@@ -160,12 +160,19 @@ export class Message {
     /*passive message*/
     reply(res, options, toUser) {
         console.log('reply');
-       
-        var resMsg = xmlmsg1(toUser, process.env.CORPID, this.timestamp(), options.content);
+      var content = options.content;
+      var time = this.timestamp();
+      var cropid = process.env.CORPID;
+      var user  = toUser;
+    let responseMsg = `<xml>
+                                <ToUserName><![CDATA[${user}]]></ToUserName>
+                                <FromUserName><![CDATA[${cropid}]]></FromUserName>
+                                <CreateTime>${time}</CreateTime>
+                                <MsgType><![CDATA[text]]></MsgType>
+                                <Content><![CDATA[${content}]]></Content>
+                            </xml>`;
 
-        const msgEncrypt = this.encryptMsg(resMsg);
-
-        res.send(msgEncrypt);
+        res.send(responseMsg);
     }
 
     /*active message*/

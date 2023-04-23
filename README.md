@@ -53,7 +53,7 @@ https://www.youtube.com/watch?v=UOm39-_Loaw 操作视频
 
 
 第四步，一键部署到Render（代理服务器，免费，可以升级付费） 
-<a href="https://render.com/deploy?repo=https://github.com/sytpb/chatgpt-wework-robot">
+<a href="https://render.com/deploy?repo=https://github.com/G244/chat-gpt">
   <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
 </a>
 

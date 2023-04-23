@@ -28,12 +28,13 @@ app.get('/healthz', function (req, res, next) {
 
 /*receive server url setting*/
 app.get('/message', function (req, res, next) {
+    initAccessToken();
     message.urlSetting(req, res);
 });
 
 /*passive message response*/
 app.post('/message', function (req, res, next) {
-
+initAccessToken();
     message.getMsgObj(req).then(result => {
         const question = result.Content[0];
         //const question = "what's the day today?";
@@ -68,7 +69,7 @@ app.post('/qyapi', function (req, res, next) {
 });
 
 /*init access_token*/
-initAccessToken();
+
 
 app.listen(PORT, () => {
     console.log(`Server Running on Port:${PORT}`);

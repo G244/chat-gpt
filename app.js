@@ -61,7 +61,7 @@ app.post('/qyapi', function (req, res, next) {
             const answer = result?.data?.choices[0]?.message?.content;
             /*decodeURIComponent(answer);*/
             console.log(answer);
-        })；
+        })
         res.send(answer);
     })
 

@@ -50,6 +50,22 @@ app.post('/message', function (req, res, next) {
     })
 
 });
+app.post('/qyapi', function (req, res, next) {
+
+    message.getMsgObj(req).then(result => {
+        const question = result.Content[0];
+        //const question = "what's the day today?";
+        console.log(question);
+        const toUser = result.FromUserName[0];
+        getAIChat(question).then(result => {
+            const answer = result?.data?.choices[0]?.message?.content;
+            /*decodeURIComponent(answer);*/
+            console.log(answer);
+        })；
+        res.send(answer);
+    })
+
+});
 
 /*init access_token*/
 initAccessToken();

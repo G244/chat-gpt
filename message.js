@@ -187,10 +187,11 @@ export class Message {
                 "content": answer
             }
         };
-
+        const unicodeJsonA =  JSON.stringify(texts);
+        const jsonA = eval('(' + unicodeJsonA + ')');
         const options = {
             url: base.url + '/message/send?access_token=' + token,
-            form: JSON.stringify(texts)
+            form: jsonA
         };
 
         request.post(options, function (err, res, body) {

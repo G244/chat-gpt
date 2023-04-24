@@ -46,8 +46,10 @@ app.post('/message', function (req, res, next) {
             /*decodeURIComponent(answer);*/
             console.log(answer);
             message.sendMsg(answer, toUser);
-        })
+        })   
     })
+    res.end();
+    return;
 
 });
 

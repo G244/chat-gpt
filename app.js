@@ -40,8 +40,6 @@ initAccessToken();
         //const question = "what's the day today?";
         console.log(question);
         const toUser = result.FromUserName[0];
-     
-    message.sendMsg('正在生成回答', toUser);
         getAIChat(question).then(result => {
             const answer = result?.data?.choices[0]?.message?.content;
             /*decodeURIComponent(answer);*/
@@ -49,6 +47,8 @@ initAccessToken();
             message.sendMsg(answer, toUser);
         })
     })
+    res.end();
+    return;
 
 });
 app.post('/qyapi', function (req, res, next) {

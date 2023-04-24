@@ -39,8 +39,6 @@ app.post('/message', function (req, res, next) {
         //const question = "what's the day today?";
         console.log(question);
         const toUser = result.FromUserName[0];
-        message.reply(res, { type: 'text', content: '正在生成回答' }, toUser);
-
         getAIChat(question).then(result => {
             const answer = result?.data?.choices[0]?.message?.content;
             /*decodeURIComponent(answer);*/

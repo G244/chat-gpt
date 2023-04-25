@@ -188,10 +188,9 @@ export class Message {
             }
         };
         const unicodeJsonA =  JSON.stringify(texts);
-        const jsonA = eval('(' + unicodeJsonA + ')');
         const options = {
             url: base.url + '/message/send?access_token=' + token,
-            form: jsonA
+            form: unicodeJsonA
         };
 
         request.post(options, function (err, res, body) {
